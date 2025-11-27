@@ -1,15 +1,6 @@
 // pages/ContactPage.jsx
 import React, { useState } from 'react';
-import {
-  Container,
-  Typography,
-  Grid,
-  Box,
-  TextField,
-  Button,
-  Card,
-  CardContent,
-  Alert,
+import {Container,Typography,Grid, Box,TextField,Button,Card,CardContent,Alert,
 } from '@mui/material';
 import { Phone, Email, LocationOn, Send } from '@mui/icons-material';
 import Header from '../components/Header';
@@ -26,8 +17,7 @@ const ContactPage = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
+    setFormData({...formData,
       [e.target.name]: e.target.value
     });
   };
@@ -81,7 +71,6 @@ const ContactPage = () => {
         </Typography>
 
         <Grid container spacing={4}>
-          {/* Contact Information */}
           <Grid item xs={12} md={4}>
             <Box sx={{ mb: 4 }}>
               <Typography variant="h5" gutterBottom color="primary">
@@ -107,11 +96,8 @@ const ContactPage = () => {
                     </Box>
                   </Box>
                 </CardContent>
-              </Card>
-            ))}
+              </Card> ))}
           </Grid>
-
-          {/* Contact Form */}
           <Grid item xs={12} md={8}>
             <Card>
               <CardContent sx={{ p: 4 }}>
@@ -196,23 +182,17 @@ const ContactPage = () => {
             </Card>
           </Grid>
         </Grid>
-
-        {/* Map Section */}
         <Box sx={{ mt: 6, textAlign: 'center' }}>
           <Typography variant="h5" gutterBottom color="primary">
             Notre Localisation
           </Typography>
-          <Box
-            sx={{
-              height: 300,
+          <Box sx={{height: 300,
               bgcolor: 'grey.200',
               borderRadius: 2,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              mt: 2
-            }}
-          >
+              mt: 2}}>
             <Typography variant="h6" color="text.secondary">
               Carte interactive - Tunis, Tunisia
             </Typography>

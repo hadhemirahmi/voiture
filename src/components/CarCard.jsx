@@ -166,7 +166,7 @@ const CarCard = ({ car }) => {
           {/* Informations supplémentaires */}
           <Box sx={{ mt: 2, p: 1, bgcolor: 'primary.main', color: 'white', borderRadius: 1 }}>
             <Typography variant="caption" sx={{ opacity: 0.9 }}>
-              💰 Prix TTC incluant toutes les taxes tunisiennes
+              rix TTC incluant toutes les taxes tunisiennes
             </Typography>
           </Box>
         </CardContent>

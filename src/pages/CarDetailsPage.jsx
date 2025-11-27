@@ -1,4 +1,3 @@
-// pages/CarDetailsPage.jsx
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
@@ -24,8 +23,6 @@ import {
 const CarDetailsPage = ({ getCarById }) => {
   const navigate = useNavigate();
   const { id } = useParams();
-  
-  // Récupérer la voiture en utilisant l'ID de l'URL
   const car = getCarById ? getCarById(id) : null;
 
   if (!car) {
