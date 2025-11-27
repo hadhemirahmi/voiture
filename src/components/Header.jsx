@@ -56,14 +56,14 @@ const Header = () => {
 
   return (
     <>
-      <AppBar position="static" sx={{ mb: 4 }}>
+      <AppBar position="static" sx={{ mb: 4 }} style={{backgroundImage: `url('https://motorz.tn/wp-content/uploads/2024/06/Lamborghini-Revuelto-Tunisie-pngff-1080x577.webp')` , backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.7)'}}>
         <Container maxWidth="lg">
           <Toolbar>
             <DirectionsCar sx={{ mr: 2 }} />
             <Typography 
               variant="h4" 
               component="h1" 
-              sx={{ flexGrow: 1, cursor: 'pointer' }}
+              sx={{ flexGrow: 2, cursor: 'pointer' }}
               onClick={() => navigate('/')}
             >
               Motorz.tn

@@ -1,205 +1,152 @@
 // pages/ContactPage.jsx
-import React, { useState } from 'react';
-import {Container,Typography,Grid, Box,TextField,Button,Card,CardContent,Alert,
-} from '@mui/material';
-import { Phone, Email, LocationOn, Send } from '@mui/icons-material';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import React, { useState } from "react";
+import {
+  Container,
+  Typography,
+  Grid,
+  Box,
+  TextField,
+  Button,
+} from "@mui/material";
+import { Phone, Email, LocationOn, Info } from "@mui/icons-material";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+    email: "",
+    name: "",
   });
-  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+    console.log("Form submitted:", formData);
+    setFormData({ email: "", name: "" });
   };
 
-  const contactInfo = [
+  const items = [
     {
-      icon: <Phone sx={{ fontSize: 40 }} />,
-      title: "Téléphone",
-      details: "+216 70 000 000",
-      description: "Lun-Ven, 9h-18h"
+      icon: <Info fontSize="large" />,
+      title: "ABOUT CLUB",
+      text1: "Running Guide",
+      text2: "Workouts",
     },
     {
-      icon: <Email sx={{ fontSize: 40 }} />,
-      title: "Email",
-      details: "contact@motorz.tn",
-      description: "Nous répondons sous 24h"
+      icon: <Phone fontSize="large" />,
+      title: "PHONE (LANDLINE)",
+      text1: "+1 987 456 9867",
+      text2: "+1 526 963 5684",
     },
     {
-      icon: <LocationOn sx={{ fontSize: 40 }} />,
-      title: "Adresse",
-      details: "Tunis, Tunisia",
-      description: "Siège principal"
-    }
+      icon: <LocationOn fontSize="large" />,
+      title: "OUR OFFICE LOCATION",
+      text1: "The Interior Design Studio Company",
+      text2: "The Courtyard, Alfiger | Colorado, USA",
+    },
   ];
 
   return (
-    <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <Box sx={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <Header />
-      
-      <Container maxWidth="lg" sx={{ flex: 1, py: 4 }}>
-        <Typography variant="h3" component="h1" gutterBottom textAlign="center">
-          Contactez-Nous
+
+      <Container maxWidth="sm" sx={{ textAlign: "center", py: 6 }}>
+        <Typography variant="h4" fontWeight="bold" gutterBottom>
+          Contact Us
         </Typography>
 
-        <Typography variant="h6" textAlign="center" color="text.secondary" sx={{ mb: 4 }}>
-          Nous sommes à votre écoute pour toutes vos questions
+        <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+          Any questions or remarks? Just write us a message!
         </Typography>
 
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
-            <Box sx={{ mb: 4 }}>
-              <Typography variant="h5" gutterBottom color="primary">
-                Nos Coordonnées
-              </Typography>
-              <Typography variant="body1" paragraph>
-                N'hésitez pas à nous contacter pour toute information concernant nos véhicules, 
-                nos services ou pour prendre rendez-vous.
-              </Typography>
-            </Box>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            mt: 2,
+          }}
+        >
+          <TextField
+            label="Enter your email address"
+            fullWidth
+            value={formData.email}
+            name="email"
+            onChange={handleChange}
+          />
 
-            {contactInfo.map((info, index) => (
-              <Card key={index} sx={{ mb: 2 }}>
-                <CardContent>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <Box sx={{ color: 'primary.main', mr: 2 }}>
-                      {info.icon}
-                    </Box>
-                    <Box>
-                      <Typography variant="h6">{info.title}</Typography>
-                      <Typography variant="body1" fontWeight="bold">{info.details}</Typography>
-                      <Typography variant="body2" color="text.secondary">{info.description}</Typography>
-                    </Box>
-                  </Box>
-                </CardContent>
-              </Card> ))}
-          </Grid>
-          <Grid item xs={12} md={8}>
-            <Card>
-              <CardContent sx={{ p: 4 }}>
-                <Typography variant="h5" gutterBottom color="primary">
-                  Envoyez-nous un message
-                </Typography>
+          <TextField
+            label="Enter your name"
+            fullWidth
+            value={formData.name}
+            name="name"
+            onChange={handleChange}
+          />
 
-                {submitted && (
-                  <Alert severity="success" sx={{ mb: 3 }}>
-                    Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.
-                  </Alert>
-                )}
-
-                <form onSubmit={handleSubmit}>
-                  <Grid container spacing={3}>
-                    <Grid item xs={12} sm={6}>
-                      <TextField
-                        fullWidth
-                        label="Nom complet"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                      />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <TextField
-                        fullWidth
-                        label="Email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <TextField
-                        fullWidth
-                        label="Téléphone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                      />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <TextField
-                        fullWidth
-                        label="Sujet"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <TextField
-                        fullWidth
-                        label="Message"
-                        name="message"
-                        multiline
-                        rows={4}
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <Button
-                        type="submit"
-                        variant="contained"
-                        size="large"
-                        startIcon={<Send />}
-                        sx={{ minWidth: 200 }}
-                      >
-                        Envoyer le message
-                      </Button>
-                    </Grid>
-                  </Grid>
-                </form>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-        <Box sx={{ mt: 6, textAlign: 'center' }}>
-          <Typography variant="h5" gutterBottom color="primary">
-            Notre Localisation
-          </Typography>
-          <Box sx={{height: 300,
-              bgcolor: 'grey.200',
-              borderRadius: 2,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              mt: 2}}>
-            <Typography variant="h6" color="text.secondary">
-              Carte interactive - Tunis, Tunisia
-            </Typography>
-          </Box>
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{
+              backgroundColor: "#b7b72aff",
+              borderRadius: "30px",
+              py: 1.2,
+              fontWeight: "bold",
+              mt: 1,
+              "&:hover": { backgroundColor: "#b7b72aff" },
+            }}
+          >
+            SUBMIT
+          </Button>
         </Box>
       </Container>
-      
+      <Box
+        sx={{
+          backgroundColor: "#b7b72aff",
+          py: 6,
+          mt: 4,
+          color: "white",
+        }}
+      >
+        <Container maxWidth="lg">
+          <Grid container spacing={4}>
+            {items.map((item, i) => (
+              <Grid key={i} item xs={12} md={4}>
+                <Box textAlign="center">
+                  <Box
+                    sx={{
+                      width: 90,
+                      height: 90,
+                      borderRadius: "50%",
+                      backgroundColor: "white",
+                      color: "#b7b72aff",
+                      mx: "auto",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      mb: 2,
+                    }}
+                  >
+                    {item.icon}
+                  </Box>
+
+                  <Typography variant="h6" fontWeight="bold" gutterBottom>
+                    {item.title}
+                  </Typography>
+
+                  <Typography>{item.text1}</Typography>
+                  <Typography>{item.text2}</Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
       <Footer />
     </Box>
   );

@@ -1,4 +1,3 @@
-// pages/HomePage.jsx
 import React from 'react';
 import {
   Container,
@@ -22,10 +21,8 @@ const HomePage = ({ cars }) => {
       <Header />
       
       <Container maxWidth="lg" sx={{ flex: 1 }}>
-        {/* Brand Section */}
+       
         <BrandSection />
-        
-        {/* Featured Cars Section */}
         <Box sx={{ mb: 6 }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
             <Typography variant="h4" component="h2">
@@ -49,7 +46,6 @@ const HomePage = ({ cars }) => {
           </Grid>
         </Box>
 
-        {/* Quick Links Section */}
         <Box sx={{ mb: 6 }}>
           <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ mb: 4 }}>
             Explorez Nos Catégories

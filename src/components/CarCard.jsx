@@ -1,4 +1,4 @@
-// components/CarCard.jsx
+
 import React, { useState } from 'react';
 import {
   Card,
@@ -58,7 +58,6 @@ const CarCard = ({ car }) => {
       />
       
       <CardContent sx={{ flexGrow: 1, pb: 1 }}>
-        {/* En-tête avec nom et prix */}
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
           <Typography variant="h6" component="h2" sx={{ flex: 1, mr: 1 }}>
             {car.name}
@@ -73,7 +72,6 @@ const CarCard = ({ car }) => {
           </Box>
         </Box>
 
-        {/* Spécifications principales */}
         <Grid container spacing={1} sx={{ mb: 2 }}>
           <Grid item xs={6}>
             <Chip 
