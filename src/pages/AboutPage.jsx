@@ -1,4 +1,4 @@
-// pages/AboutPage.jsx
+
 import React from 'react';
 import {
   Container,
@@ -44,8 +44,6 @@ const AboutPage = () => {
         <Typography variant="h3" component="h1" gutterBottom textAlign="center">
           À Propos de Motorz.tn
         </Typography>
-
-        {/* Mission Section */}
         <Box sx={{ mb: 6 }}>
           <Typography variant="h5" gutterBottom color="primary">
             Notre Mission
@@ -60,8 +58,6 @@ const AboutPage = () => {
             fiable pour découvrir les plus grandes marques automobiles avec des estimations de prix précises en TND.
           </Typography>
         </Box>
-
-        {/* Values Section */}
         <Box sx={{ mb: 6 }}>
           <Typography variant="h5" gutterBottom color="primary" textAlign="center">
             Nos Valeurs
@@ -87,7 +83,6 @@ const AboutPage = () => {
           </Grid>
         </Box>
 
-        {/* History Section */}
         <Box sx={{ mb: 6 }}>
           <Typography variant="h5" gutterBottom color="primary">
             Notre Histoire

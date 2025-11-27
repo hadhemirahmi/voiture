@@ -85,8 +85,6 @@ const MotoPage = () => {
             </Grid>
           ))}
         </Grid>
-
-        {/* Coming Soon Section */}
         <Box sx={{ textAlign: 'center', mt: 6, p: 4, bgcolor: 'background.paper', borderRadius: 2 }}>
           <TwoWheeler sx={{ fontSize: 48, color: 'primary.main', mb: 2 }} />
           <Typography variant="h5" gutterBottom>

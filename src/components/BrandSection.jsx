@@ -35,18 +35,17 @@ const BrandSection = () => {
 
   return (
     <Box sx={{ mb: 6 }}>
-      <Typography 
-        variant="h4" 
+      <Typography variant="h4" 
         component="h2" 
         textAlign="center" 
         gutterBottom
-        sx={{ mb: 4 }}>
+        sx={{ mb: 8 }}>
       
         Top Marques voitures Internationales
         
       </Typography>
       
-      <Grid container spacing={3} justifyContent="center">
+      <Grid container spacing={12} justifyContent="center">
         {Object.entries(brands).map(([category, brandList]) => (
           <Grid item xs={12} md={6} key={category}>
             <Card variant="outlined" sx={{ height: '100%' }}>
@@ -69,7 +68,7 @@ const BrandSection = () => {
                         }
                         primaryTypographyProps={{
                           variant: 'body1',
-                          sx: { fontWeight: category === 'Luxe' ? 600 : 400 }
+                          sx: { fontWeight: category === 'Luxe' ? 800 : 600 }
                         }}
                       />
                     </ListItem>

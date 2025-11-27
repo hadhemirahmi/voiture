@@ -1,4 +1,4 @@
-// pages/BateauPage.jsx
+
 import React from 'react';
 import {
   Container,

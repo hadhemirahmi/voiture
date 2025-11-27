@@ -14,11 +14,8 @@ const Footer = () => {
   return (
     <Box sx={{ bgcolor: "black", color: "white", pt: 10 }} style={{backgroundImage: `url('https://motorz.tn/wp-content/uploads/2024/06/Lamborghini-Revuelto-Tunisie-pngff-1080x577.webp')`, backgroundPosition: 'center',backgroundRepet:'non-repet'}}>
       <Container maxWidth="lg">
-        
-        {/* === CONTENU PRINCIPAL === */}
+
         <Grid container spacing={6} alignItems="flex-start">
-          
-          {/* --- Colonne 1 : Logo + Réseaux sociaux --- */}
           <Grid item xs={12} md={4} textAlign="center">
             
 
@@ -27,8 +24,6 @@ const Footer = () => {
               <TikTokIcon sx={{ fontSize: 28, cursor: "pointer" }} />
             </Box>
           </Grid>
-
-          {/* --- Colonne 2 : Texte descriptif --- */}
           <Grid item xs={12} md={4}>
             <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
               Motorz.tn
@@ -45,7 +40,6 @@ const Footer = () => {
             </Typography>
           </Grid>
 
-          {/* --- Colonne 3 : Liens de navigation --- */}
           <Grid item xs={12} md={4} textAlign={{ xs: "center", md: "left" }}>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
               <Typography sx={{ cursor: "pointer" }}>Auto</Typography>
@@ -61,7 +55,7 @@ const Footer = () => {
 
         <Box sx={{ textAlign: "center", mt: 8, pb: 3, opacity: 0.7 }}>
           <Typography variant="body2">
-            Made with ❤️ by <span style={{ color: "#3EA6FF" }}>StudioNet</span>
+            Made with love by <span style={{ color: "#3EA6FF" }}>StudioNet</span>
           </Typography>
         </Box>
       </Container>

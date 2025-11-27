@@ -1,4 +1,4 @@
-// components/LoginModal.jsx
+
 import React, { useState } from 'react';
 import {
   Modal,

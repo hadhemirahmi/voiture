@@ -102,7 +102,6 @@ const CarCard = ({ car }) => {
           </Grid>
         </Grid>
 
-        {/* Performance rapide */}
         <Box sx={{ display: 'flex', justifyContent: 'space-around', mb: 2, p: 1, bgcolor: 'grey.50', borderRadius: 1 }}>
           <Box sx={{ textAlign: 'center' }}>
             <Typography variant="caption" color="text.secondary">
@@ -131,16 +130,16 @@ const CarCard = ({ car }) => {
         </Box>
       </CardContent>
 
-      {/* Section détails dépliables */}
+
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <Divider />
         <CardContent sx={{ pt: 2, pb: 1 }}>
-          {/* Description */}
+
           <Typography variant="body2" color="text.secondary" paragraph>
             {car.description}
           </Typography>
 
-          {/* Toutes les spécifications */}
+  
           <Paper variant="outlined" sx={{ p: 2, bgcolor: 'background.default' }}>
             <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
               Spécifications complètes
@@ -161,7 +160,6 @@ const CarCard = ({ car }) => {
             </Grid>
           </Paper>
 
-          {/* Informations supplémentaires */}
           <Box sx={{ mt: 2, p: 1, bgcolor: 'primary.main', color: 'white', borderRadius: 1 }}>
             <Typography variant="caption" sx={{ opacity: 0.9 }}>
               rix TTC incluant toutes les taxes tunisiennes
@@ -169,8 +167,6 @@ const CarCard = ({ car }) => {
           </Box>
         </CardContent>
       </Collapse>
-
-      {/* Bouton pour étendre/réduire */}
       <CardActions sx={{ p: 2, pt: 1 }}>
         <Button 
           fullWidth 

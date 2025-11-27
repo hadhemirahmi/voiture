@@ -1,4 +1,3 @@
-// components/AccessoireCard.jsx
 import React, { useState } from 'react';
 import {
   Card,
@@ -56,7 +55,6 @@ const AccessoireCard = ({ accessoire }) => {
       />
       
       <CardContent sx={{ flexGrow: 1, pb: 1 }}>
-        {/* En-tête avec nom et prix */}
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
           <Typography variant="h6" component="h2" sx={{ flex: 1, mr: 1 }}>
             {accessoire.name}
@@ -70,8 +68,6 @@ const AccessoireCard = ({ accessoire }) => {
             </Typography>
           </Box>
         </Box>
-
-        {/* Spécifications principales */}
         <Grid container spacing={1} sx={{ mb: 2 }}>
           <Grid item xs={6}>
             <Chip 
@@ -101,7 +97,6 @@ const AccessoireCard = ({ accessoire }) => {
           </Grid>
         </Grid>
 
-        {/* Caractéristiques rapides */}
         <Box sx={{ display: 'flex', justifyContent: 'space-around', mb: 2, p: 1, bgcolor: 'grey.50', borderRadius: 1 }}>
           <Box sx={{ textAlign: 'center' }}>
             <Typography variant="caption" color="text.secondary">
@@ -130,16 +125,14 @@ const AccessoireCard = ({ accessoire }) => {
         </Box>
       </CardContent>
 
-      {/* Section détails dépliables */}
+
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <Divider />
         <CardContent sx={{ pt: 2, pb: 1 }}>
-          {/* Description */}
           <Typography variant="body2" color="text.secondary" paragraph>
             {accessoire.description}
           </Typography>
 
-          {/* Toutes les spécifications */}
           <Paper variant="outlined" sx={{ p: 2, bgcolor: 'background.default' }}>
             <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
               Détails du produit
@@ -159,8 +152,6 @@ const AccessoireCard = ({ accessoire }) => {
               ))}
             </Grid>
           </Paper>
-
-          {/* Informations supplémentaires */}
           <Box sx={{ mt: 2, p: 1, bgcolor: 'primary.main', color: 'white', borderRadius: 1 }}>
             <Typography variant="caption" sx={{ opacity: 0.9 }}>
               🚚 Livraison gratuite en Tunisie
@@ -169,7 +160,6 @@ const AccessoireCard = ({ accessoire }) => {
         </CardContent>
       </Collapse>
 
-      {/* Bouton pour étendre/réduire */}
       <CardActions sx={{ p: 2, pt: 1 }}>
         <Button 
           fullWidth 

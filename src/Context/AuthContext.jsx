@@ -1,4 +1,4 @@
-// Context/AuthContext.jsx
+
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
 const AuthContext = createContext();
@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Vérifier si l'utilisateur est déjà connecté au chargement
+
     const savedUser = localStorage.getItem('motorz_user');
     if (savedUser) {
       setUser(JSON.parse(savedUser));
@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (email, password) => {
-    // Simulation d'authentification
+
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (email === 'admin@motorz.tn' && password === 'password') {

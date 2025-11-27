@@ -1,4 +1,4 @@
-// pages/AccessoiresPage.jsx
+
 import React from 'react';
 import {
   Container,

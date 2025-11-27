@@ -58,7 +58,7 @@ const CarDetailsPage = ({ getCarById }) => {
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
-      {/* Back Button */}
+
       <Button 
         startIcon={<ArrowBack />} 
         onClick={() => navigate(-1)}
@@ -68,7 +68,6 @@ const CarDetailsPage = ({ getCarById }) => {
       </Button>
 
       <Grid container spacing={4}>
-        {/* Car Image */}
         <Grid item xs={12} md={6}>
           <Card>
             <CardMedia
@@ -80,15 +79,11 @@ const CarDetailsPage = ({ getCarById }) => {
             />
           </Card>
         </Grid>
-
-        {/* Car Details */}
         <Grid item xs={12} md={6}>
           <Box sx={{ mb: 3 }}>
             <Typography variant="h3" component="h1" gutterBottom>
               {car.name}
             </Typography>
-            
-            {/* Price Section */}
             <Paper elevation={2} sx={{ p: 3, mb: 3, bgcolor: 'primary.main', color: 'white' }}>
               <Typography variant="h4" fontWeight="bold" gutterBottom>
                 {car.price}
@@ -97,8 +92,6 @@ const CarDetailsPage = ({ getCarById }) => {
                 {car.priceEur}
               </Typography>
             </Paper>
-
-            {/* Key Specs Chips */}
             <Box sx={{ mb: 3, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
               <Chip 
                 icon={<Speed />} 
@@ -117,8 +110,6 @@ const CarDetailsPage = ({ getCarById }) => {
               />
             </Box>
           </Box>
-
-          {/* Specifications Grid */}
           <Paper elevation={1} sx={{ p: 3 }}>
             <Typography variant="h5" gutterBottom sx={{ mb: 2 }}>
               Spécifications Techniques
@@ -146,8 +137,6 @@ const CarDetailsPage = ({ getCarById }) => {
             </Grid>
           </Paper>
         </Grid>
-
-        {/* Description */}
         <Grid item xs={12}>
           <Paper elevation={1} sx={{ p: 3 }}>
             <Typography variant="h5" gutterBottom>
