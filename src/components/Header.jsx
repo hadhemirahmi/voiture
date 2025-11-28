@@ -83,7 +83,6 @@ const Header = () => {
                 </Button>
               ))}
               
-              {/* Section utilisateur */}
               {user ? (
                 <Box sx={{ display: 'flex', alignItems: 'center', ml: 2 }}>
                   <Chip
