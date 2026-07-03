@@ -25,9 +25,14 @@ const HomePage = ({ cars }) => {
         <BrandSection />
         <Box sx={{ mb: 6 }}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
-            <Typography variant="h4" component="h2">
-              Véhicules en Vedette
-            </Typography>
+            <Box>
+              <Typography variant="h4" component="h2" fontWeight="800" sx={{ color: 'text.primary' }}>
+                Véhicules en Vedette
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+                Sélection premium — prix officiels en TND
+              </Typography>
+            </Box>
             <Button 
               endIcon={<ArrowForward />}
               onClick={() => navigate('/auto')}
@@ -46,8 +51,8 @@ const HomePage = ({ cars }) => {
           </Grid>
         </Box>
 
-        <Box sx={{ mb: 6 }}>
-          <Typography variant="h4" component="h2" textAlign="center" gutterBottom sx={{ mb: 4 }}>
+        <Box sx={{ mb: 8 }}>
+          <Typography variant="h4" component="h2" textAlign="center" fontWeight="800" gutterBottom sx={{ mb: 6 }}>
             Explorez Nos Catégories
           </Typography>
           <Grid container spacing={3}>
@@ -55,84 +60,116 @@ const HomePage = ({ cars }) => {
               <Box 
                 sx={{ 
                   textAlign: 'center', 
-                  p: 3, 
-                  bgcolor: 'primary.main', 
-                  color: 'white', 
-                  borderRadius: 2,
+                  p: 4, 
+                  bgcolor: 'background.paper', 
+                  color: 'text.primary', 
+                  borderRadius: '20px',
+                  border: '1px solid rgba(0,0,0,0.06)',
                   cursor: 'pointer',
-                  transition: 'transform 0.3s',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  boxShadow: '0 2px 16px rgba(0, 0, 0, 0.06)',
                   '&:hover': {
-                    transform: 'translateY(-5px)',
+                    transform: 'translateY(-8px)',
+                    borderColor: 'rgba(227, 28, 37, 0.3)',
+                    boxShadow: '0 16px 48px rgba(227, 28, 37, 0.14)',
+                    '& .cat-icon': {
+                      color: 'primary.main',
+                      transform: 'scale(1.1)',
+                    }
                   }
                 }}
                 onClick={() => navigate('/auto')}
               >
-                <DirectionsCar sx={{ fontSize: 48, mb: 2 }} />
-                <Typography variant="h6">Voitures</Typography>
-                <Typography variant="body2">Luxe & Performance</Typography>
+                
+                <Typography variant="h6" fontWeight="800" gutterBottom>Voitures</Typography>
+                <Typography variant="body2" color="text.secondary">Luxe & Performance</Typography>
               </Box>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
               <Box 
                 sx={{ 
                   textAlign: 'center', 
-                  p: 3, 
-                  bgcolor: 'secondary.main', 
-                  color: 'white', 
-                  borderRadius: 2,
+                  p: 4, 
+                  bgcolor: 'background.paper', 
+                  color: 'text.primary', 
+                  borderRadius: '20px',
+                  border: '1px solid rgba(0,0,0,0.06)',
                   cursor: 'pointer',
-                  transition: 'transform 0.3s',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  boxShadow: '0 2px 16px rgba(0, 0, 0, 0.06)',
                   '&:hover': {
-                    transform: 'translateY(-5px)',
+                    transform: 'translateY(-8px)',
+                    borderColor: 'rgba(26, 26, 46, 0.3)',
+                    boxShadow: '0 16px 48px rgba(26, 26, 46, 0.1)',
+                    '& .cat-icon': {
+                      color: 'secondary.main',
+                      transform: 'scale(1.1)',
+                    }
                   }
                 }}
                 onClick={() => navigate('/moto')}
               >
-                <TwoWheeler sx={{ fontSize: 48, mb: 2 }} />
-                <Typography variant="h6">Motos</Typography>
-                <Typography variant="body2">Sport & Routières</Typography>
+                
+                <Typography variant="h6" fontWeight="800" gutterBottom>Motos</Typography>
+                <Typography variant="body2" color="text.secondary">Sport & Routières</Typography>
               </Box>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
               <Box 
                 sx={{ 
                   textAlign: 'center', 
-                  p: 3, 
-                  bgcolor: 'success.main', 
-                  color: 'white', 
-                  borderRadius: 2,
+                  p: 4, 
+                  bgcolor: 'background.paper', 
+                  color: 'text.primary', 
+                  borderRadius: '20px',
+                  border: '1px solid rgba(0,0,0,0.06)',
                   cursor: 'pointer',
-                  transition: 'transform 0.3s',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  boxShadow: '0 2px 16px rgba(0, 0, 0, 0.06)',
                   '&:hover': {
-                    transform: 'translateY(-5px)',
+                    transform: 'translateY(-8px)',
+                    borderColor: 'rgba(255, 159, 26, 0.4)',
+                    boxShadow: '0 16px 48px rgba(255, 159, 26, 0.15)',
+                    '& .cat-icon': {
+                      color: '#ff9f1a',
+                      transform: 'scale(1.1)',
+                    }
                   }
                 }}
                 onClick={() => navigate('/bateau')}
               >
-                <DirectionsBoat sx={{ fontSize: 48, mb: 2 }} />
-                <Typography variant="h6">Bateaux</Typography>
-                <Typography variant="body2">Luxe & Sport</Typography>
+                
+                <Typography variant="h6" fontWeight="800" gutterBottom>Bateaux</Typography>
+                <Typography variant="body2" color="text.secondary">Luxe & Sport</Typography>
               </Box>
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
               <Box 
                 sx={{ 
                   textAlign: 'center', 
-                  p: 3, 
-                  bgcolor: 'warning.main', 
-                  color: 'white', 
-                  borderRadius: 2,
+                  p: 4, 
+                  bgcolor: 'background.paper', 
+                  color: 'text.primary', 
+                  borderRadius: '20px',
+                  border: '1px solid rgba(0,0,0,0.06)',
                   cursor: 'pointer',
-                  transition: 'transform 0.3s',
+                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                  boxShadow: '0 2px 16px rgba(0, 0, 0, 0.06)',
                   '&:hover': {
-                    transform: 'translateY(-5px)',
+                    transform: 'translateY(-8px)',
+                    borderColor: 'rgba(16, 172, 132, 0.4)',
+                    boxShadow: '0 16px 48px rgba(16, 172, 132, 0.15)',
+                    '& .cat-icon': {
+                      color: '#10ac84',
+                      transform: 'scale(1.1)',
+                    }
                   }
                 }}
                 onClick={() => navigate('/accessoires')}
               >
-                <TwoWheeler sx={{ fontSize: 48, mb: 2 }} />
-                <Typography variant="h6">Accessoires</Typography>
-                <Typography variant="body2">Équipements Moto</Typography>
+              
+                <Typography variant="h6" fontWeight="800" gutterBottom>Accessoires</Typography>
+                <Typography variant="body2" color="text.secondary">Équipements Moto</Typography>
               </Box>
             </Grid>
           </Grid>

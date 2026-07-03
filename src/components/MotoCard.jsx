@@ -34,34 +34,53 @@ const MotoCard = ({ moto }) => {
     { label: 'Poids', value: moto.weight },
   ];
 
-  return (
-    <Card 
+  return (    <Card 
       sx={{ 
-        height: 'auto', 
+        height: '100%', 
         display: 'flex', 
         flexDirection: 'column',
-        transition: 'all 0.3s ease-in-out',
-        '&:hover': {
-          transform: 'translateY(-5px)',
-          boxShadow: 6,
-        }
       }}
     >
-      <CardMedia
-        component="img"
-        height="200"
-        image={moto.image}
-        alt={moto.name}
-        sx={{ objectFit: 'cover' }}
-      />
+      <Box sx={{ position: 'relative', overflow: 'hidden' }}>
+        <CardMedia
+          component="img"
+          height="220"
+          image={moto.image}
+          alt={moto.name}
+          sx={{ 
+            objectFit: 'cover',
+            transition: 'transform 0.5s ease',
+            '&:hover': {
+              transform: 'scale(1.05)'
+            }
+          }}
+        />
+        <Box 
+          sx={{ 
+            position: 'absolute', 
+            top: 12, 
+            left: 12,
+            bgcolor: 'rgba(255, 255, 255, 0.92)',
+            backdropFilter: 'blur(8px)',
+            borderRadius: '8px',
+            px: 1.5,
+            py: 0.5,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.12)'
+          }}
+        >
+          <Typography variant="caption" fontWeight="800" sx={{ color: '#1a1a2e', letterSpacing: '0.04em' }}>
+            {moto.year}
+          </Typography>
+        </Box>
+      </Box>
       
-      <CardContent sx={{ flexGrow: 1, pb: 1 }}>
+      <CardContent sx={{ flexGrow: 1, pb: 1, pt: 2.5 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
-          <Typography variant="h6" component="h2" sx={{ flex: 1, mr: 1 }}>
+          <Typography variant="h6" component="h2" fontWeight="700" sx={{ flex: 1, mr: 1 }}>
             {moto.name}
           </Typography>
           <Box sx={{ textAlign: 'right' }}>
-            <Typography variant="h6" color="error.main" fontWeight="bold">
+            <Typography variant="h6" color="primary.main" fontWeight="800">
               {moto.price}
             </Typography>
             <Typography variant="caption" color="text.secondary">
@@ -72,87 +91,78 @@ const MotoCard = ({ moto }) => {
         <Grid container spacing={1} sx={{ mb: 2 }}>
           <Grid item xs={6}>
             <Chip 
-              icon={<CalendarToday />} 
+              icon={<CalendarToday sx={{ fontSize: 16 }} />} 
               label={moto.year} 
               variant="outlined" 
               size="small" 
-              sx={{ width: '100%' }}
+              sx={{ width: '100%', justifyContent: 'flex-start', pl: 1 }}
             />
           </Grid>
           <Grid item xs={6}>
             <Chip 
-              icon={<TwoWheeler />} 
+              icon={<TwoWheeler sx={{ fontSize: 16 }} />} 
               label={moto.type} 
               variant="outlined" 
               size="small" 
-              sx={{ width: '100%' }}
+              sx={{ width: '100%', justifyContent: 'flex-start', pl: 1 }}
             />
           </Grid>
           <Grid item xs={12}>
             <Chip 
-              icon={<Speed />} 
+              icon={<Speed sx={{ fontSize: 16, color: 'secondary.main !important' }} />} 
               label={moto.power} 
-              color="primary" 
+              variant="outlined" 
               size="small" 
-              sx={{ width: '100%', mt: 1 }}
+              sx={{ 
+                width: '100%', 
+                mt: 0.5, 
+                justifyContent: 'flex-start', 
+                pl: 1,
+                borderColor: 'rgba(0, 240, 255, 0.2)',
+                backgroundColor: 'rgba(0, 240, 255, 0.03)'
+              }}
             />
           </Grid>
         </Grid>
-        <Box sx={{ display: 'flex', justifyContent: 'space-around', mb: 2, p: 1, bgcolor: 'grey.50', borderRadius: 1 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-around', mb: 2, p: 1.5, bgcolor: '#f8f9ff', border: '1px solid rgba(0,0,0,0.06)', borderRadius: '12px' }}>
           <Box sx={{ textAlign: 'center' }}>
-            <Typography variant="caption" color="text.secondary">
-              0-100 km/h
-            </Typography>
-            <Typography variant="body2" fontWeight="bold">
-              {moto.acceleration}
-            </Typography>
+            <Typography variant="caption" color="text.secondary" display="block">0-100 km/h</Typography>
+            <Typography variant="body2" fontWeight="800" color="text.primary">{moto.acceleration}</Typography>
           </Box>
           <Box sx={{ textAlign: 'center' }}>
-            <Typography variant="caption" color="text.secondary">
-              Vitesse max
-            </Typography>
-            <Typography variant="body2" fontWeight="bold">
-              {moto.maxSpeed}
-            </Typography>
+            <Typography variant="caption" color="text.secondary" display="block">Vitesse max</Typography>
+            <Typography variant="body2" fontWeight="800" color="text.primary">{moto.maxSpeed}</Typography>
           </Box>
           <Box sx={{ textAlign: 'center' }}>
-            <Typography variant="caption" color="text.secondary">
-              Cylindrée
-            </Typography>
-            <Typography variant="body2" fontWeight="bold">
-              {moto.engine}
-            </Typography>
+            <Typography variant="caption" color="text.secondary" display="block">Cylindrée</Typography>
+            <Typography variant="body2" fontWeight="800" color="primary.main">{moto.engine}</Typography>
           </Box>
         </Box>
       </CardContent>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <Divider />
         <CardContent sx={{ pt: 2, pb: 1 }}>
-          <Typography variant="body2" color="text.secondary" paragraph>
+          <Typography variant="body2" color="text.secondary" paragraph sx={{ lineHeight: 1.7 }}>
             {moto.description}
           </Typography>
-          <Paper variant="outlined" sx={{ p: 2, bgcolor: 'background.default' }}>
-            <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
+          <Paper variant="outlined" sx={{ p: 2, bgcolor: '#f8f9ff', borderColor: 'rgba(0,0,0,0.07)', borderRadius: '12px' }}>
+            <Typography variant="subtitle2" fontWeight="800" gutterBottom sx={{ color: 'primary.main', textTransform: 'uppercase', letterSpacing: '0.06em', fontSize: '0.72rem' }}>
               Spécifications complètes
             </Typography>
             <Grid container spacing={1}>
               {specs.map((spec, index) => (
                 <Grid item xs={6} key={index}>
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Typography variant="caption" color="text.secondary">
-                      {spec.label}:
-                    </Typography>
-                    <Typography variant="caption" fontWeight="bold">
-                      {spec.value}
-                    </Typography>
+                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', py: 0.3 }}>
+                    <Typography variant="caption" color="text.secondary">{spec.label}:</Typography>
+                    <Typography variant="caption" fontWeight="700" color="text.primary">{spec.value}</Typography>
                   </Box>
                 </Grid>
               ))}
             </Grid>
           </Paper>
-          <Box sx={{ mt: 2, p: 1, bgcolor: 'primary.main', color: 'white', borderRadius: 1 }}>
-            <Typography variant="caption" sx={{ opacity: 0.9 }}>
-              🏍️ Moto prête pour la route tunisienne
+          <Box sx={{ mt: 2, p: 1.5, border: '1px solid rgba(227, 28, 37, 0.15)', bgcolor: 'rgba(227, 28, 37, 0.04)', borderRadius: '8px', textAlign: 'center' }}>
+            <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block' }}>
+              Moto prête pour la route tunisienne
             </Typography>
           </Box>
         </CardContent>
@@ -164,8 +174,7 @@ const MotoCard = ({ moto }) => {
           onClick={handleExpandClick}
           endIcon={expanded ? <ExpandLess /> : <ExpandMore />}
           sx={{ 
-            py: 1,
-            transition: 'all 0.2s ease-in-out'
+            py: 1.2,
           }}
         >
           {expanded ? 'Réduire' : 'Voir détails'}
@@ -174,5 +183,4 @@ const MotoCard = ({ moto }) => {
     </Card>
   );
 };
-
 export default MotoCard;

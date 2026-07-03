@@ -48,18 +48,19 @@ const LoginModal = ({ open, onClose, onLogin }) => {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          width: 400,
+          width: 420,
           bgcolor: 'background.paper',
-          boxShadow: 24,
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.4)',
           p: 4,
-          borderRadius: 2,
+          borderRadius: '16px',
         }}
       >
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-          <Typography variant="h5" component="h2" fontWeight="bold">
+          <Typography variant="h5" component="h2" fontWeight="800">
             Connexion
           </Typography>
-          <Button onClick={onClose} size="small" sx={{ minWidth: 'auto' }}>
+          <Button onClick={onClose} size="small" sx={{ minWidth: 'auto', color: 'text.secondary' }}>
             <Close />
           </Button>
         </Box>
@@ -90,7 +91,7 @@ const LoginModal = ({ open, onClose, onLogin }) => {
           />
 
           {error && (
-            <Alert severity="error" sx={{ mt: 2 }}>
+            <Alert severity="error" sx={{ mt: 2, borderRadius: '8px' }}>
               {error}
             </Alert>
           )}
@@ -102,22 +103,22 @@ const LoginModal = ({ open, onClose, onLogin }) => {
             disabled={loading}
             sx={{ mt: 3, mb: 2, py: 1.5 }}
           >
-            {loading ? <CircularProgress size={24} /> : 'Se connecter'}
+            {loading ? <CircularProgress size={24} color="inherit" /> : 'Se connecter'}
           </Button>
         </form>
 
-        <Divider sx={{ my: 2 }}>ou</Divider>
+        <Divider sx={{ my: 2, opacity: 0.6 }}>ou</Divider>
 
         <Box sx={{ mt: 2 }}>
           <Typography variant="body2" color="text.secondary" gutterBottom>
             Comptes de démonstration:
           </Typography>
-          <Box sx={{ display: 'flex', gap: 1, mt: 1 }}>
+          <Box sx={{ display: 'flex', gap: 1.5, mt: 1 }}>
             <Button
               variant="outlined"
               size="small"
               onClick={() => handleDemoLogin('admin@motorz.tn', 'password')}
-              sx={{ flex: 1 }}
+              sx={{ flex: 1, borderRadius: '8px' }}
             >
               Admin
             </Button>
@@ -125,14 +126,14 @@ const LoginModal = ({ open, onClose, onLogin }) => {
               variant="outlined"
               size="small"
               onClick={() => handleDemoLogin('user@example.com', 'password')}
-              sx={{ flex: 1 }}
+              sx={{ flex: 1, borderRadius: '8px' }}
             >
               Utilisateur
             </Button>
           </Box>
         </Box>
 
-        <Box sx={{ mt: 3, p: 2, bgcolor: 'grey.50', borderRadius: 1 }}>
+        <Box sx={{ mt: 3, p: 2, bgcolor: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '8px' }}>
           <Typography variant="caption" color="text.secondary">
             Pour tester: utilisez les comptes de démonstration ci-dessus
           </Typography>

@@ -13,6 +13,8 @@ import {
 import { Speed, TwoWheeler } from '@mui/icons-material';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import MotoCard from '../components/MotoCard';
+
 const MotoPage = () => {
   const motorcycles = [
     {
@@ -54,46 +56,11 @@ const MotoPage = () => {
         <Grid container spacing={3}>
           {motorcycles.map((moto) => (
             <Grid item xs={12} sm={6} md={4} key={moto.id}>
-              <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={moto.image}
-                  alt={moto.name}
-                  sx={{ objectFit: 'cover' }}
-                />
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {moto.name}
-                  </Typography>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <Speed sx={{ mr: 1, color: 'primary.main' }} />
-                    <Typography variant="body1" fontWeight="bold">
-                      {moto.power}
-                    </Typography>
-                  </Box>
-                  <Typography variant="h6" color="error.main" fontWeight="bold">
-                    {moto.price}
-                  </Typography>
-                </CardContent>
-                <Box sx={{ p: 2 }}>
-                  <Button fullWidth variant="contained">
-                    Voir détails
-                  </Button>
-                </Box>
-              </Card>
+              <MotoCard moto={moto} />
             </Grid>
           ))}
         </Grid>
-        <Box sx={{ textAlign: 'center', mt: 6, p: 4, bgcolor: 'background.paper', borderRadius: 2 }}>
-          <TwoWheeler sx={{ fontSize: 48, color: 'primary.main', mb: 2 }} />
-          <Typography variant="h5" gutterBottom>
-            Plus de modèles bientôt disponibles
-          </Typography>
-          <Typography variant="body1" color="text.secondary">
-            Notre catalogue de motos s'enrichit régulièrement. Revenez bientôt pour découvrir de nouveaux modèles.
-          </Typography>
-        </Box>
+        
       </Container>
       
       <Footer />
